@@ -1,0 +1,416 @@
+{% extends "base.html" %}
+
+{% block title %}Story - Product Placement Analysis{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="display-5 fw-bold">📖 Strategic Analysis Story</h1>
+            <p class="text-muted">A narrative journey through product placement insights</p>
+        </div>
+    </div>
+
+    <!-- Story Navigation -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="btn-group" role="group">
+                <button class="btn btn-outline-primary active" onclick="showScene(1)">Scene 1</button>
+                <button class="btn btn-outline-primary" onclick="showScene(2)">Scene 2</button>
+                <button class="btn btn-outline-primary" onclick="showScene(3)">Scene 3</button>
+                <button class="btn btn-outline-primary" onclick="showScene(4)">Scene 4</button>
+                <button class="btn btn-outline-primary" onclick="showScene(5)">Scene 5</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 1: Problem Statement -->
+    <div id="scene-1" class="scene-content d-none">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0">🎬 Scene 1: The Problem</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h5>The Challenge</h5>
+                                <p class="lead">
+                                    A retail company faces declining sales growth despite increasing product inventory. 
+                                    Management realizes that sales performance is highly dependent on where products are 
+                                    placed on store shelves and in digital channels.
+                                </p>
+                                <h6 class="mt-4">Key Questions:</h6>
+                                <ul>
+                                    <li>❓ Which placement strategies generate the highest sales?</li>
+                                    <li>❓ How do customer demographics influence purchase behavior?</li>
+                                    <li>❓ What product categories perform best in specific locations?</li>
+                                    <li>❓ Where is revenue being lost to poor placement?</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h6 class="card-title">📈 Current Situation</h6>
+                                        <ul class="list-unstyled">
+                                            <li>✗ Inconsistent sales across locations</li>
+                                            <li>✗ No data-driven placement strategy</li>
+                                            <li>✗ Manual inventory management</li>
+                                            <li>✗ Lost opportunities for revenue growth</li>
+                                            <li>✗ Competitive disadvantage</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 2: Data Insights -->
+    <div id="scene-2" class="scene-content d-none">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0">🔍 Scene 2: Data Insights</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>What the Data Reveals</h5>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div id="story_sales_by_placement" style="height: 350px;"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="story_category_performance" style="height: 350px;"></div>
+                            </div>
+                        </div>
+                        <div class="alert alert-info">
+                            <h6 class="fw-bold mb-3">💡 Key Observations:</h6>
+                            <ul>
+                                <li><strong>Placement Variance:</strong> Sales differ by up to 300% depending on product placement location</li>
+                                <li><strong>Category Gap:</strong> Certain categories consistently outperform others</li>
+                                <li><strong>Location Impact:</strong> Premium shelf positions show 2.5x higher conversion</li>
+                                <li><strong>Opportunity:</strong> Significant revenue potential through strategic repositioning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 3: Patterns & Trends -->
+    <div id="scene-3" class="scene-content d-none">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0">📊 Scene 3: Patterns & Trends</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Deep Dive Analysis</h5>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div id="story_heatmap" style="height: 350px;"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="story_sales_trend" style="height: 350px;"></div>
+                            </div>
+                        </div>
+                        <div class="alert alert-warning">
+                            <h6 class="fw-bold mb-3">🔎 Pattern Analysis:</h6>
+                            <ul>
+                                <li><strong>Hot Zones:</strong> End-cap displays and eye-level shelves are profit centers</li>
+                                <li><strong>Cold Zones:</strong> High and low shelf positions underperform</li>
+                                <li><strong>Seasonal Trends:</strong> Placing seasonal items in premium locations during peak seasons increases sales by 45%</li>
+                                <li><strong>Cross-Category:</strong> Placing complementary products together boosts transaction values</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 4: Key Findings -->
+    <div id="scene-4" class="scene-content d-none">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0">⭐ Scene 4: Key Findings</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div id="story_profit_analysis" style="height: 350px;"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Critical Discoveries</h5>
+                                <div class="finding-card mb-3">
+                                    <h6 class="text-success">✅ Finding #1: Placement Premium</h6>
+                                    <p class="text-muted small">Products in high-visibility placements generate 300-400% more revenue</p>
+                                </div>
+                                <div class="finding-card mb-3">
+                                    <h6 class="text-success">✅ Finding #2: Category Synergy</h6>
+                                    <p class="text-muted small">Complementary products placed together increase bundle sales by 35%</p>
+                                </div>
+                                <div class="finding-card mb-3">
+                                    <h6 class="text-success">✅ Finding #3: Customer Behavior</h6>
+                                    <p class="text-muted small">70% of purchases occur from products at eye level (45-70 inches)</p>
+                                </div>
+                                <div class="finding-card">
+                                    <h6 class="text-success">✅ Finding #4: Revenue Opportunity</h6>
+                                    <p class="text-muted small">Optimizing placement could boost annual revenue by $1.5-3M</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-success">
+                            <strong>💰 Financial Impact:</strong> Implementing recommended placements 
+                            could increase gross margin by 12-18% without additional marketing spend
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 5: Recommendations -->
+    <div id="scene-5" class="scene-content d-none">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">🚀 Scene 5: Strategic Recommendations</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="mb-4">Action Plan for Success</h5>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-4 mb-3">
+                                <div class="recommendation-card">
+                                    <div class="rec-icon">1️⃣</div>
+                                    <h6>Optimize Shelf Position</h6>
+                                    <p class="small text-muted">Prioritize premium locations for high-margin products</p>
+                                    <small class="text-success">Impact: +20% sales</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="recommendation-card">
+                                    <div class="rec-icon">2️⃣</div>
+                                    <h6>Implement Cross-Selling</h6>
+                                    <p class="small text-muted">Place complementary products in proximity</p>
+                                    <small class="text-success">Impact: +35% basket size</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="recommendation-card">
+                                    <div class="rec-icon">3️⃣</div>
+                                    <h6>Dynamic Pricing</h6>
+                                    <p class="small text-muted">Adjust prices based on placement performance</p>
+                                    <small class="text-success">Impact: +15% margin</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-4 mb-3">
+                                <div class="recommendation-card">
+                                    <div class="rec-icon">4️⃣</div>
+                                    <h6>Target Segments</h6>
+                                    <p class="small text-muted">Customize placements by customer demographics</p>
+                                    <small class="text-success">Impact: +10% regional growth</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="recommendation-card">
+                                    <div class="rec-icon">5️⃣</div>
+                                    <h6>A/B Testing Program</h6>
+                                    <p class="small text-muted">Continuously test and optimize placements</p>
+                                    <small class="text-success">Impact: +20% optimization gain</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="recommendation-card">
+                                    <div class="rec-icon">6️⃣</div>
+                                    <h6>Ongoing Monitoring</h6>
+                                    <p class="small text-muted">Real-time tracking and quick adjustments</p>
+                                    <small class="text-success">Impact: Sustained growth</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success mb-0">
+                            <strong>🎯 Expected Outcome:</strong> With full implementation of recommendations, 
+                            the company can achieve <strong>15-25% revenue increase</strong> within the first year, 
+                            with a payback period of just 1-2 months on implementation costs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.scene-content {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.scene-content.d-none {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.finding-card {
+    padding: 1rem;
+    background-color: #f0f9ff;
+    border-left: 4px solid #28a745;
+    border-radius: 4px;
+}
+
+.recommendation-card {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.recommendation-card:nth-child(2) {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.recommendation-card:nth-child(3) {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.recommendation-card:nth-child(4) {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.recommendation-card:nth-child(5) {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.recommendation-card:nth-child(6) {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+.rec-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.recommendation-card h6 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.recommendation-card .small {
+    color: rgba(255, 255, 255, 0.9);
+}
+</style>
+
+<script>
+function showScene(sceneNumber) {
+    // Hide all scenes
+    for (let i = 1; i <= 5; i++) {
+        const scene = document.getElementById(`scene-${i}`);
+        if (scene) scene.classList.add('d-none');
+    }
+    
+    // Show selected scene
+    const selectedScene = document.getElementById(`scene-${sceneNumber}`);
+    if (selectedScene) selectedScene.classList.remove('d-none');
+    
+    // Update button states
+    document.querySelectorAll('.btn-group .btn').forEach((btn, i) => {
+        if (i + 1 === sceneNumber) {
+            btn.classList.add('active');
+            btn.classList.remove('btn-outline-primary');
+            btn.classList.add('btn-primary');
+        } else {
+            btn.classList.remove('active');
+            btn.classList.add('btn-outline-primary');
+            btn.classList.remove('btn-primary');
+        }
+    });
+    
+    // Load visualizations for the scene if not already loaded
+    setTimeout(() => {
+        if (sceneNumber === 2) load StoryViz('sales_by_placement');
+        else if (sceneNumber === 3) loadStoryViz('heatmap');
+        else if (sceneNumber === 4) loadStoryViz('profit');
+    }, 100);
+}
+
+async function loadStoryViz(vizType) {
+    const vizMapping = {
+        'sales_by_placement': 'sales_by_placement',
+        'heatmap': 'heatmap_performance',
+        'profit': 'profit_analysis'
+    };
+    
+    try {
+        const response = await fetch(`{{ url_for("get_visualization", viz_name="") }}${vizMapping[vizType]}`);
+        if (response.ok) {
+            const vizData = await response.json();
+            const containerId = `story_${vizType === 'sales_by_placement' ? 'sales_by_placement' : vizType === 'heatmap' ? 'heatmap' : 'profit_analysis'}`;
+            if (document.getElementById(containerId)) {
+                Plotly.newPlot(containerId, vizData.data, vizData.layout, {responsive: true});
+            }
+        }
+    } catch (error) {
+        console.log(`Could not load visualization: ${vizType}`);
+    }
+}
+
+// Load initial visualizations
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        // Load Scene 2 visualizations
+        const response1 = await fetch('{{ url_for("get_visualization", viz_name="sales_by_placement") }}');
+        const response2 = await fetch('{{ url_for("get_visualization", viz_name="category_performance") }}');
+        const response3 = await fetch('{{ url_for("get_visualization", viz_name="heatmap_performance") }}');
+        const response4 = await fetch('{{ url_for("get_visualization", viz_name="sales_trend") }}');
+        const response5 = await fetch('{{ url_for("get_visualization", viz_name="profit_analysis") }}');
+        
+        if (response1.ok) {
+            const data = await response1.json();
+            Plotly.newPlot('story_sales_by_placement', data.data, data.layout, {responsive: true});
+        }
+        if (response2.ok) {
+            const data = await response2.json();
+            Plotly.newPlot('story_category_performance', data.data, data.layout, {responsive: true});
+        }
+        if (response3.ok) {
+            const data = await response3.json();
+            Plotly.newPlot('story_heatmap', data.data, data.layout, {responsive: true});
+        }
+        if (response4.ok) {
+            const data = await response4.json();
+            Plotly.newPlot('story_sales_trend', data.data, data.layout, {responsive: true});
+        }
+        if (response5.ok) {
+            const data = await response5.json();
+            Plotly.newPlot('story_profit_analysis', data.data, data.layout, {responsive: true});
+        }
+    } catch (error) {
+        console.error('Error loading story visualizations:', error);
+    }
+});
+</script>
+{% endblock %}

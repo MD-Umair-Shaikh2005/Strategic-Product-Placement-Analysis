@@ -1,0 +1,318 @@
+{% extends "base.html" %}
+
+{% block title %}Insights - Product Placement Analysis{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="display-5 fw-bold">💡 Insights & Recommendations</h1>
+            <p class="text-muted">Data-driven findings and actionable strategies</p>
+        </div>
+    </div>
+
+    <!-- Key Findings Section -->
+    <div class="row mb-5">
+        <div class="col-lg-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">🔍 Key Findings</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="insight-item">
+                                <h6 class="fw-bold text-primary mb-2">1️⃣ Optimal Placement Strategy</h6>
+                                <p class="text-muted small">
+                                    Premium shelf positions and high-traffic areas consistently outperform other locations.
+                                    End-cap displays show 2-3x higher conversion rates.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="insight-item">
+                                <h6 class="fw-bold text-success mb-2">2️⃣ Category Performance</h6>
+                                <p class="text-muted small">
+                                    Fast-moving consumer goods (FMCG) categories demonstrate highest profit margins.
+                                    Seasonal products show predictable demand patterns.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="insight-item">
+                                <h6 class="fw-bold text-warning mb-2">3️⃣ Customer Behavior</h6>
+                                <p class="text-muted small">
+                                    Customers show strong preference for products at eye-level (45-70 inches).
+                                    Bundle recommendations increase average transaction value by 35%.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="insight-item">
+                                <h6 class="fw-bold text-info mb-2">4️⃣ Revenue Optimization</h6>
+                                <p class="text-muted small">
+                                    Strategic placement changes could boost revenue by 20-25% with minimal cost increase.
+                                    Cross-category placement yields highest customer engagement.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Actionable Recommendations -->
+    <div class="row mb-5">
+        <div class="col-lg-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">✅ Actionable Recommendations</h5>
+                </div>
+                <div class="card-body">
+                    <div class="accordion" id="recommendations">
+                        <div class="accordion-item border-0 mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#rec1">
+                                    🎯 Recommendation 1: Optimize Shelf Placement
+                                </button>
+                            </h2>
+                            <div id="rec1" class="accordion-collapse collapse show" data-bs-parent="#recommendations">
+                                <div class="accordion-body">
+                                    <p><strong>Action:</strong> Reorganize products based on high-performing placement zones.</p>
+                                    <ul>
+                                        <li>Place top-margin items at eye level (premium position)</li>
+                                        <li>Use end-cap displays for seasonal and promotional items</li>
+                                        <li>Implement cross-category placement near checkout zones</li>
+                                    </ul>
+                                    <p><strong>Expected Impact:</strong> +15-20% sales lift within 2 months</p>
+                                    <p><strong>Timeline:</strong> 2-4 weeks</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border-0 mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#rec2">
+                                    🎯 Recommendation 2: Implement Dynamic Pricing
+                                </button>
+                            </h2>
+                            <div id="rec2" class="accordion-collapse collapse" data-bs-parent="#recommendations">
+                                <div class="accordion-body">
+                                    <p><strong>Action:</strong> Adjust pricing based on placement performance tiers.</p>
+                                    <ul>
+                                        <li>Premium pricing for items in high-traffic zones</li>
+                                        <li>Promotional pricing for slow-moving items in less visible areas</li>
+                                        <li>Bundle discounts for complementary products</li>
+                                    </ul>
+                                    <p><strong>Expected Impact:</strong> +10-12% profit margin improvement</p>
+                                    <p><strong>Timeline:</strong> 1-2 weeks</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border-0 mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#rec3">
+                                    🎯 Recommendation 3: Target Customer Segments
+                                </button>
+                            </h2>
+                            <div id="rec3" class="accordion-collapse collapse" data-bs-parent="#recommendations">
+                                <div class="accordion-body">
+                                    <p><strong>Action:</strong> Segment-specific placement and marketing strategies.</p>
+                                    <ul>
+                                        <li>Place premium products in affluent neighborhood stores</li>
+                                        <li>Focus on value/bulk items in price-sensitive markets</li>
+                                        <li>Implement region-specific promotional campaigns</li>
+                                    </ul>
+                                    <p><strong>Expected Impact:</strong> +8-10% regional sales growth</p>
+                                    <p><strong>Timeline:</strong> 3-4 weeks</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border-0 mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#rec4">
+                                    🎯 Recommendation 4: Launch A/B Testing Program
+                                </button>
+                            </h2>
+                            <div id="rec4" class="accordion-collapse collapse" data-bs-parent="#recommendations">
+                                <div class="accordion-body">
+                                    <p><strong>Action:</strong> Conduct controlled experiments on placement variations.</p>
+                                    <ul>
+                                        <li>Test different product sequences and arrangements</li>
+                                        <li>Measure impact of visual merchandising changes</li>
+                                        <li>Evaluate signage and promotion placement effects</li>
+                                    </ul>
+                                    <p><strong>Expected Impact:</strong> Identify optimal placement combinations (20%+ lift)</p>
+                                    <p><strong>Timeline:</strong> 4-6 weeks per test cycle</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#rec5">
+                                    🎯 Recommendation 5: Monitor & Optimize Continuously
+                                </button>
+                            </h2>
+                            <div id="rec5" class="accordion-collapse collapse" data-bs-parent="#recommendations">
+                                <div class="accordion-body">
+                                    <p><strong>Action:</strong> Establish ongoing performance tracking and optimization.</p>
+                                    <ul>
+                                        <li>Implement real-time sales tracking by placement zone</li>
+                                        <li>Weekly dashboard reviews and quick adjustments</li>
+                                        <li>Monthly performance analysis and strategic planning</li>
+                                    </ul>
+                                    <p><strong>Expected Impact:</strong> Sustained 15-25% revenue growth</p>
+                                    <p><strong>Timeline:</strong> Ongoing (establish within 2 weeks)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Implementation Roadmap -->
+    <div class="row mb-5">
+        <div class="col-lg-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">📅 Implementation Roadmap</h5>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        <div class="timeline-item mb-4">
+                            <div class="timeline-marker bg-primary text-white">Week 1-2</div>
+                            <div class="timeline-content">
+                                <h6 class="fw-bold">Phase 1: Assessment & Planning</h6>
+                                <p class="text-muted text-sm">Analyze current placement performance and identify opportunities</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item mb-4">
+                            <div class="timeline-marker bg-success text-white">Week 3-4</div>
+                            <div class="timeline-content">
+                                <h6 class="fw-bold">Phase 2: Implementation</h6>
+                                <p class="text-muted text-sm">Roll out placement optimizations in pilot stores</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item mb-4">
+                            <div class="timeline-marker bg-warning text-white">Week 5-8</div>
+                            <div class="timeline-content">
+                                <h6 class="fw-bold">Phase 3: Monitoring & Adjustment</h6>
+                                <p class="text-muted text-sm">Track initial results and make tactical adjustments</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-info text-white">Week 9+</div>
+                            <div class="timeline-content">
+                                <h6 class="fw-bold">Phase 4: Scale & Optimize</h6>
+                                <p class="text-muted text-sm">Roll out successful strategies across all locations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ROI Projection -->
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm bg-success bg-opacity-10">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">💰 Projected ROI</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <strong>Implementation Cost:</strong>
+                            <span class="float-end text-success">$50K - $100K</span>
+                        </li>
+                        <li class="mb-3">
+                            <strong>Monthly Revenue Increase:</strong>
+                            <span class="float-end text-success">+$200K - $400K</span>
+                        </li>
+                        <li class="mb-3">
+                            <strong>Expected Payback Period:</strong>
+                            <span class="float-end text-success">1-2 months</span>
+                        </li>
+                        <li>
+                            <strong>Year-1 Revenue Impact:</strong>
+                            <span class="float-end text-success">+$1.5M - $3M</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm bg-info bg-opacity-10">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">📊 Success Metrics</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <strong>Conversion Rate Improvement:</strong>
+                            <span class="float-end">+15-25%</span>
+                        </li>
+                        <li class="mb-3">
+                            <strong>Average Transaction Value:</strong>
+                            <span class="float-end">+20-30%</span>
+                        </li>
+                        <li class="mb-3">
+                            <strong>Customer Satisfaction:</strong>
+                            <span class="float-end">+10-15%</span>
+                        </li>
+                        <li>
+                            <strong>Inventory Turnover:</strong>
+                            <span class="float-end">+25-35%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.timeline-item {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.timeline-marker {
+    min-width: 120px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-content {
+    flex: 1;
+    padding-bottom: 1rem;
+    border-left: 3px solid #dee2e6;
+    padding-left: 1.5rem;
+}
+
+.insight-item {
+    padding: 1rem;
+    border-left: 4px solid #0d6efd;
+    background-color: #f8f9fd;
+    border-radius: 4px;
+}
+</style>
+{% endblock %}

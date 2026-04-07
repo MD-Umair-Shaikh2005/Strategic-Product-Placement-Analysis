@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Product Placement Analysis{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="display-5 fw-bold">📊 Analytics Dashboard</h1>
+            <p class="text-muted">Interactive visualizations of product placement impact on sales</p>
+        </div>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3">
+            <div class="card border-0 shadow-sm bg-primary bg-opacity-10">
+                <div class="card-body">
+                    <h6 class="card-title text-muted">Total Records</h6>
+                    <h3 class="fw-bold" id="totalRecords">-</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card border-0 shadow-sm bg-success bg-opacity-10">
+                <div class="card-body">
+                    <h6 class="card-title text-muted">Categories</h6>
+                    <h3 class="fw-bold" id="totalCategories">-</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card border-0 shadow-sm bg-warning bg-opacity-10">
+                <div class="card-body">
+                    <h6 class="card-title text-muted">Placements</h6>
+                    <h3 class="fw-bold" id="totalPlacements">-</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card border-0 shadow-sm bg-info bg-opacity-10">
+                <div class="card-body">
+                    <h6 class="card-title text-muted">Top Category</h6>
+                    <h3 class="fw-bold text-truncate" id="topCategory">-</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visualizations Grid -->
+    <div class="row g-4">
+        <!-- Visualization 1: Sales by Placement -->
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Sales by Placement</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="sales_by_placement" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization 2: Category Performance -->
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Category Performance</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="category_performance" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization 3: Placement Efficiency -->
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Placement Efficiency</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="placement_efficiency" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization 4: Sales Trend -->
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Sales Trend</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="sales_trend" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization 5: Customer Demographics -->
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Customer Demographics</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="customer_demographics" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization 6: Heatmap Performance -->
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Placement × Category Heatmap</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="heatmap_performance" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization 7: Profit Analysis -->
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Profit by Placement</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="profit_analysis" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization 8: Conversion Analysis -->
+        <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Transaction Metrics</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="conversion_analysis" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        // Load data info for KPIs
+        const infoResponse = await fetch('{{ url_for("data_info") }}');
+        const info = await infoResponse.json();
+        
+        document.getElementById('totalRecords').textContent = info.shape[0].toLocaleString();
+        
+        // Load statistics for additional KPIs
+        const statsResponse = await fetch('{{ url_for("statistics") }}');
+        const stats = await statsResponse.json();
+        
+        // Calculate KPIs from stats
+        if (stats.categorical_summary) {
+            const categories = stats.categorical_summary;
+            if (categories.Category) {
+                document.getElementById('totalCategories').textContent = Object.keys(categories.Category).length;
+            }
+            if (categories.Placement) {
+                document.getElementById('totalPlacements').textContent = Object.keys(categories.Placement).length;
+            }
+            if (categories.Category) {
+                const topCat = Object.keys(categories.Category).reduce((a, b) => 
+                    categories.Category[a] > categories.Category[b] ? a : b);
+                document.getElementById('topCategory').textContent = topCat;
+            }
+        }
+        
+        // Load visualizations
+        const visualizations = [
+            'sales_by_placement',
+            'category_performance',
+            'placement_efficiency',
+            'sales_trend',
+            'customer_demographics',
+            'heatmap_performance',
+            'profit_analysis',
+            'conversion_analysis'
+        ];
+        
+        for (const vizName of visualizations) {
+            try {
+                const response = await fetch(`{{ url_for("get_visualization", viz_name="") }}${vizName}`);
+                if (response.ok) {
+                    const vizData = await response.json();
+                    Plotly.newPlot(vizName, vizData.data, vizData.layout, {responsive: true});
+                }
+            } catch (error) {
+                console.log(`Could not load visualization: ${vizName}`);
+            }
+        }
+    } catch (error) {
+        console.error('Error loading dashboard:', error);
+    }
+});
+</script>
+{% endblock %}
